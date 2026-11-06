@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projects | Layla Shalash</title>
+  <!-- Google Fonts for pastel aesthetic -->
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+  <script>
+    const tips = [
+      "Know that FTP uses TCP ports 20 and 21.",
+      "DNS typically uses UDP port 53.",
+      "HTTPS runs on TCP port 443.",
+      "DHCP uses UDP ports 67 (server) and 68 (client).",
+      "TFTP uses UDP port 69."
+    ];
+    function showTip() {
+      const randomIndex = Math.floor(Math.random() * tips.length);
+      document.getElementById('tipBox').innerText = tips[randomIndex];
+    }
+  </script>
+</head>
+<body>
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <header>
+    <h1>Projects</h1>
+    <p>Where technical learning meets creativity and clarity.</p>
+  </header>
+
+  <section>
+    <div class="project-box">
+      <h3>Volunteer Reflection Builder</h3>
+      <img src="Volunteer.png" alt="Volunteer project" class="project-img" />
+      <p>A tool designed to help students move beyond surface-level summaries and write meaningful service reflections. 
+         It guides users to explore values and lessons learned, inspired by my work with EPIC House and campus events. 
+         This project blends technical design (form inputs and outputs) with thoughtful structure, showing how technology can support clarity and empathy.</p>
+      <p><em>Future vision:</em> evolving into a web app where students generate polished essays for portfolios or scholarships.</p>
+    </div>
+
+    <div class="project-box">
+      <h3>Java Projects on GitHub</h3>
+      <img src="Java.png" alt="GitHub projects" class="project-img" />
+      <p>A collection of console-based tools and object-oriented experiments that demonstrate my backend logic, 
+         file handling, and structured problem-solving skills. These projects reflect my growth in programming fundamentals 
+         and my comfort with GitHub as a collaborative platform. Visitors can see not just finished code, but my learning process and adaptability.</p>
+      <p><em>Future vision:</em> expanding into GUI-based Java apps or API integrations, progressing from console tools to user-friendly applications.</p>
+      <p><a href="https://github.com/shalasla" target="_blank">Visit My GitHub</a></p>
+    </div>
+
+    <div class="project-box">
+      <h3>Modded Nintendo 3DS</h3>
+      <img src="3ds.jpg" alt="My modded Nintendo 3DS" class="project-img" />
+      <p>A personal tech project where I customized my handheld console through hardware mods, custom firmware, 
+         and aesthetic personalization. This project reflects my curiosity for exploring systems outside formal coursework, 
+         troubleshooting complex setups, and blending creativity with technical skill.</p>
+      <p><em>Future vision:</em> documenting the process in a tutorial or photo gallery, turning it into a resource for others 
+         who want to explore safe, ethical modding.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>Networking Ports Reference</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Protocol</th>
+          <th>Port</th>
+          <th>TCP/UDP</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>FTP</td><td>20/21</td><td>TCP</td><td>File Transfer Protocol</td></tr>
+        <tr><td>DNS</td><td>53</td><td>UDP</td><td>Domain Name System</td></tr>
+        <tr><td>HTTPS</td><td>443</td><td>TCP</td><td>Secure Web Traffic</td></tr>
+        <tr><td>DHCP</td><td>67/68</td><td>UDP</td><td>Dynamic Host Configuration Protocol</td></tr>
+        <tr><td>TFTP</td><td>69</td><td>UDP</td><td>Trivial File Transfer Protocol</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section>
+    <h2>Study Vibes</h2>
+    <p>Here’s a lo-fi playlist I use while studying:</p>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/4xDzrJKXOOY" 
+    title="Lo-fi Playlist" allowfullscreen></iframe>
+  </section>
+
+  <section>
+    <h2>Click for a Surprise</h2>
+    <button onclick="showTip()">Reveal a Random A+ Exam Tip</button>
+    <p id="tipBox" class="tip-box"></p>
+  </section>
+
+  <!-- Lightbox modal -->
+  <div id="lightbox" class="lightbox">
+    <span class="close">&times;</span>
+    <img class="lightbox-content" id="lightbox-img">
+  </div>
+
+  <footer>
+    <p>© 2025 Layla Shalash | <a href="Resume.pdf" download>Download Resume</a> | <a href="contact.html">Contact</a></p>
+  </footer>
+
+  <script>
+    // Lightbox functionality
+    const images = document.querySelectorAll('.project-img');
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const closeBtn = document.querySelector('.close');
+
+    images.forEach(img => {
+      img.addEventListener('click', () => {
+        lightbox.style.display = 'block';
+        lightboxImg.src = img.src;
+      });
+    });
+
+    closeBtn.addEventListener('click', () => {
+      lightbox.style.display = 'none';
+    });
+
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox) {
+        lightbox.style.display = 'none';
+      }
+    });
+  </script>
+</body>
+</html>
